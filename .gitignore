@@ -35,3 +35,38 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Android build
+android/.gradle/
+android/app/build/
+android/build/
+*.keystore
+
+# iOS build
+ios/Pods/
+ios/build/
+ios/*.xcodeproj/
+ios/*.xcworkspace/
+ios/xcuserdata/
+
+# Fastlane (if used)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Bundles
+*.jsbundle
+
+# Logs
+*.log
+
+# Watchman
+.watchmanconfig
+
+# Prettier, ESLint cache
+.prettiercache
+.eslintcache
+
+# VSCode settings (if personal)
+.vscode/
