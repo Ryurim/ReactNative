@@ -1,46 +1,22 @@
-import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View, Button } from "react-native";
-import { Image } from "react-native";
-import LoginScreen from "./screens/LoginScreen";
-import Box from "./components/Box";
-import Counter from "./components/Counter";
-
-// const App = () => {
-//     const [visible, setVisible] = useState(true);
-//     const pressVisible = () => {
-//         setVisible(!visible);
-//     };
-//     return (
-//         // <View className="flex-1 justify-center items-center gap-3">
-//         //     <StatusBar style="auto" />
-//         //     {/* <LoginScreen /> */}
-//         //     <Button title="토글" onPress={pressVisible} />
-//         //     {visible && <Box rounded size="large" color="red" />}
-//         // </View>
-//         <SafeAreaView className="flex-1">
-//             <Counter />
-//         </SafeAreaView>
-//     );
-// };
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: "#fff",
-//         alignItems: "center",
-//         justifyContent: "center",
-//     },
-// });
+import React from "react";
+import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import DateHead from "./components/DateHead";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import AddToDo from "./components/AddTodo";
+import Empty from "./components/Empty";
 
 const App = () => {
-    const [count, setCount] = useState(0);
-    const onIncrease = () => setCount(count + 1);
-    const onDecrease = () => setCount(count - 1);
+    const today = new Date();
+    console.log(today);
+
     return (
-        <SafeAreaView className="flex-1">
-            <Counter count={count} onIncrease={onIncrease} onDecrease={onDecrease} />
-        </SafeAreaView>
+        <SafeAreaProvider edges={["bottom"]}>
+            <SafeAreaView className="flex-1">
+                <DateHead date={today} />
+                <Empty />
+                <AddToDo />
+            </SafeAreaView>
+        </SafeAreaProvider>
     );
 };
 
