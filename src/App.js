@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, Platform, KeyboardAvoidingView } from "react-native";
 import DateHead from "./components/DateHead";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AddToDo from "./components/AddTodo";
@@ -11,11 +11,13 @@ const App = () => {
 
     return (
         <SafeAreaProvider edges={["bottom"]}>
-            <SafeAreaView className="flex-1">
-                <DateHead date={today} />
-                <Empty />
-                <AddToDo />
-            </SafeAreaView>
+            <KeyboardAvoidingView behavior={Platform.select({ ios: "padding" })} className="flex-1">
+                <SafeAreaView className="flex-1 bg-white">
+                    <DateHead date={today} />
+                    <Empty />
+                    <AddToDo />
+                </SafeAreaView>
+            </KeyboardAvoidingView>
         </SafeAreaProvider>
     );
 };
